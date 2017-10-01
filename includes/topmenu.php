@@ -26,7 +26,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<?php
 						if(isset($_SESSION['email'])){ ?>
-							<li><a href="/logout.php">Logout</a></li>
+							<li><a href="logout.php">Logout</a></li>
 					<?php } ?>
 				</ul>
 			</div>
