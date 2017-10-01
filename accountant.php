@@ -4,7 +4,7 @@
 	$email = $_SESSION['email'];
 	$role = $_SESSION['role'];
 
-	if(empty(email) || $role != 'accountant'){
+	if(empty($email) || $role != 'accountant'){
 		header('Location: index.php?err=2');
 	}
 ?>
