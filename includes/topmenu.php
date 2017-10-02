@@ -12,21 +12,17 @@
 			
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="/info/index.html">About Us</a></li>
-					<li><a href="/info/contact.html">Contact me</a></li>
-					<li><a href="/info/privacy.html">Privacy policy</a></li>
-
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Series articles<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a>chata mata</a></li>
-						</ul>
-					</li>
+					<li><a href="/info/terms.php">Terms & Conditions</a></li>
+					<li><a href="/info/contact.php">Contact us</a></li>
 				</ul>
+				
 				<ul class="nav navbar-nav navbar-right">
 					<?php
 						if(isset($_SESSION['email'])){ ?>
-							<li><a href="logout.php">Logout</a></li>
+							<li><a href="logoutAction.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+						<?php } else { ?>
+							<li><a href="register.php"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+							<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					<?php } ?>
 				</ul>
 			</div>
