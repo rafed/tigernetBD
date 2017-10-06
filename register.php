@@ -3,6 +3,7 @@
 
 <head>
 	<?php include 'includes/header.php'; ?>
+	<script type="text/javascript" src="js/registration.js"></script>
 	<title>Home</title>
 </head>
 
@@ -107,16 +108,18 @@
 				outline:none;
 			}
 			</style>
+			
+			
 			<div class="row register-form">
 				<div class="col-md-8 col-md-offset-2">
-					<form class="form-horizontal custom-form" action="registerAction.php">
+					<form name="registrationForm" class="form-horizontal custom-form" action="registerAction.php" method="post" onSubmit="return formValidation()">
 						<h1>Register Form</h1>
 						<div class="form-group">
 							<div class="col-sm-4 label-column">
 								<label class="control-label" for="name-input-field">Name </label>
 							</div>
 							<div class="col-sm-6 input-column">
-								<input class="form-control" type="text">
+								<input class="form-control" type="text" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -124,7 +127,7 @@
 								<label class="control-label" for="email-input-field">Email </label>
 							</div>
 							<div class="col-sm-6 input-column">
-								<input class="form-control" type="email">
+								<input class="form-control" type="email" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -132,7 +135,7 @@
 								<label class="control-label" for="pawssword-input-field">Password </label>
 							</div>
 							<div class="col-sm-6 input-column">
-								<input class="form-control" type="password">
+								<input class="form-control" name="password" type="password" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -140,14 +143,14 @@
 								<label class="control-label" for="repeat-pawssword-input-field">Repeat Password </label>
 							</div>
 							<div class="col-sm-6 input-column">
-								<input class="form-control" type="password">
+								<input class="form-control" name="confirmPassword" type="password" required>
 							</div>
 						</div>
 						<div class="checkbox">
 							<label>
 								<input type="checkbox">I've read and accept the terms and conditions</label>
 						</div>
-						<button class="btn btn-default submit-button" type="submit">Submit Form</button>
+						<button class="btn btn-default submit-button" type="submit" onClick="return formValidation()">Submit Form</button>
 					</form>
 					</div>
 				</div>

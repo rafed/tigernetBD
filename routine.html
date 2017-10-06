@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('#viewRoutine').click(function(){
+					$(this).hide();
+					var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+							document.getElementById("routine").innerHTML=this.responseText;
+						}
+					};
+					xhttp.open("POST", "routine.php?email=bsse0733@iit.du.ac.bd", true);
+					xhttp.send();
+				});
+			});
+		</script>
+    </head>
+ 
+    <body>
+		<div class="container">
+			<div id="routine"></div>
+			<button id="viewRoutine" class="button">View Routine</button>
+			<p>Made By Tuktuki</p>
+		</div>
+    </body>
+</html>

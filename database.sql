@@ -1,3 +1,11 @@
+drop table revenue;
+drop table courseSchedule;
+drop table batch;
+drop table course;
+drop table student;
+drop table employee;
+drop table users;
+
 create TABLE users
 (
 	email varchar(100) not null,
@@ -7,8 +15,13 @@ create TABLE users
 	accountStatus varchar(10) not null default 'inactive',
 	CONSTRAINT userPK PRIMARY KEY(email)
 );
- 
-INSERT INTO users values('bsse0727@iit.du.ac.bd','Mahi','mahi','accountant','active');
+
+INSERT INTO users values('bsse0707@iit.du.ac.bd','Nafis Faisal','nafis','teacher','active');
+INSERT INTO users values('bsse0709@iit.du.ac.bd','Md. Reshad Mollick','mou','teacher','active');
+INSERT INTO users values('bsse0727@iit.du.ac.bd','Afrina Sharmin','mahi','accountant','active');
+INSERT INTO users values('bsse0731@iit.du.ac.bd','Moumita Asad','mou','course manager','active');
+INSERT INTO users values('bsse0733@iit.du.ac.bd','Rafed Muhammad Yasir','rafed','teacher','active');
+
 INSERT INTO users values('moumita.asad@yahoo.com','Moumita','mou','student','active');
 
 create TABLE employee
@@ -39,7 +52,15 @@ create TABLE course
 	CONSTRAINT coursePK PRIMARY KEY(name)
 );
 
-INSERT INTO course values('Wordpress','1500');
+INSERT INTO course values('HTML', '700');
+INSERT INTO course values('CSS', '700');
+INSERT INTO course values('Javascript','1000');
+INSERT INTO course values('PHP','12000');
+INSERT INTO course values('MySQL','500');
+INSERT INTO course values('Wordpress','2000');
+INSERT INTO course values('Web designing','1000');
+INSERT INTO course values('Server administration','1000');
+
 
 create TABLE batch
 (
@@ -57,16 +78,34 @@ INSERT INTO batch(studentEmail,courseName,paymentAmount,paymentDate) values('mou
 
 create TABLE courseSchedule
 (
-	teacherEmail varchar(100) not null,
 	courseName varchar(50) not null,
-	startTime DATETIME not null,
-	endTime DATETIME not null,
 	day varchar(10) not null,
-	CONSTRAINT courseSchedulePK PRIMARY KEY(teacherEmail,courseName),
+	teacherEmail varchar(100) not null,
+	startTime varchar(10) not null,
+	endTime varchar(10) not null,
+	CONSTRAINT courseSchedulePK PRIMARY KEY(courseName,day,teacherEmail),
 	CONSTRAINT courseScheduleFK foreign key(teacherEmail) references users(email),
 	CONSTRAINT courseScheduleFK2 foreign key(courseName) references course(name)
 );
 
+INSERT INTO courseSchedule values('HTML', 'friday', 'bsse0709@iit.du.ac.bd', '09:00:00','11:00:00');
+INSERT INTO courseSchedule values('CSS', 'friday', 'bsse0727@iit.du.ac.bd', '11:00:00','01:00:00');
+
+INSERT INTO courseSchedule values('PHP', 'saturday', 'bsse0731@iit.du.ac.bd', '09:00:00','11:00:00');
+INSERT INTO courseSchedule values('MySQL', 'saturday', 'bsse0707@iit.du.ac.bd', '11:00:00','01:00:00');
+INSERT INTO courseSchedule values('Web designing', 'saturday', 'bsse0733@iit.du.ac.bd', '03:00:00','05:00:00');
+
+INSERT INTO courseSchedule values('HTML', 'sunday', 'bsse0709@iit.du.ac.bd', '03:00:00','05:00:00');
+INSERT INTO courseSchedule values('CSS', 'sunday', 'bsse0727@iit.du.ac.bd', '05:00:00','07:00:00');
+
+INSERT INTO courseSchedule values('Wordpress', 'monday', 'bsse0733@iit.du.ac.bd', '03:00:00','05:00:00');
+INSERT INTO courseSchedule values('PHP', 'monday', 'bsse0731@iit.du.ac.bd', '05:00:00','7:00:00');
+
+INSERT INTO courseSchedule values('MySQL', 'wednesday', 'bsse0707@iit.du.ac.bd', '03:00:00','05:00:00');
+INSERT INTO courseSchedule values('Web designing', 'wednesday', 'bsse0733@iit.du.ac.bd', '05:00:00','07:00:00');
+
+INSERT INTO courseSchedule values('Wordpress', 'thursday', 'bsse0733@iit.du.ac.bd', '03:00:00','05:00:00');
+INSERT INTO courseSchedule values('Web designing', 'thursday', 'bsse0727@iit.du.ac.bd', '05:00:00','07:00:00');
 
 create TABLE revenue
 (
