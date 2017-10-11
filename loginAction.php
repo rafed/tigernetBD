@@ -15,30 +15,30 @@
 			header('Location: index.php?err=1');
 			exit;
 		}
-		$role = $sqlRow['role'];
 		
 		$_SESSION['email'] = $_POST[email];
-		$_SESSION['role'] = $role;
+		$_SESSION['role'] = $sqlRow['role'];
 
+		header('Location: routine.php');
 		/*** User roles ***/
-		if($role == "accountant"){
-			header('Location: accountant.php');
-			exit;
-		}
+		// if($role == "accountant"){
+		// 	header('Location: accountant.php');
+		// 	exit;
+		// }
 		
-		if($role == "course manager"){
-			header('Location: courseManager.php');
-			exit;
-		}
+		// if($role == "course manager"){
+		// 	header('Location: courseManager.php');
+		// 	exit;
+		// }
 
-		if($role == "student"){
-			header('Location: student.php');
-			exit;
-		}
+		// if($role == "student"){
+		// 	header('Location: student.php');
+		// 	exit;
+		// }
 
-		if($role == "teacher"){
-			header('Location: teacher.php');
-			exit;
-		}
+		// if($role == "teacher"){
+		// 	header('Location: teacher.php');
+		// 	exit;
+		// }
 	}
 ?>

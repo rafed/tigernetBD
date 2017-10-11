@@ -16,11 +16,11 @@ create TABLE users
 	CONSTRAINT userPK PRIMARY KEY(email)
 );
 
-INSERT INTO users values('bsse0707@iit.du.ac.bd','Nafis Faisal','nafis','teacher','active');
-INSERT INTO users values('bsse0709@iit.du.ac.bd','Md. Reshad Mollick','mou','teacher','active');
-INSERT INTO users values('bsse0727@iit.du.ac.bd','Afrina Sharmin','mahi','accountant','active');
-INSERT INTO users values('bsse0731@iit.du.ac.bd','Moumita Asad','mou','course manager','active');
-INSERT INTO users values('bsse0733@iit.du.ac.bd','Rafed Muhammad Yasir','rafed','teacher','active');
+INSERT INTO users values('bsse0707@iit.du.ac.bd','Nafis Faisal','nafis','Teacher','active');
+INSERT INTO users values('bsse0709@iit.du.ac.bd','Md. Reshad Mollick','mou','Teacher','active');
+INSERT INTO users values('bsse0727@iit.du.ac.bd','Afrina Sharmin','mahi','Accountant','active');
+INSERT INTO users values('bsse0731@iit.du.ac.bd','Moumita Asad','mou','course Manager','active');
+INSERT INTO users values('bsse0733@iit.du.ac.bd','Rafed Muhammad Yasir','rafed','Teacher','active');
 
 INSERT INTO users values('moumita.asad@yahoo.com','Moumita','mou','student','active');
 

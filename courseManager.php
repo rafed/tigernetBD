@@ -1,26 +1,8 @@
 <?php
-	session_start();
+	$title = "Course Manager";
+	$role = 'course manager';
 
-	$email = $_SESSION['email'];
-	$role = $_SESSION['role'];
+	$content = "This is course manager's page.";
 
-	if(empty($email) || $role != 'course manager'){
-		header('Location: index.php?err=2');
-	}
+	include 'includes/master.php';
 ?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-	<?php include 'includes/header.php'; ?>
-	<title>Course Manager</title>
-</head>
-
-<body>
-	<div class="container-fluid">
-		<?php include 'includes/topmenu.php'; ?>
-	</div>
-</body
-
-</html>
