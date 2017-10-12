@@ -4,13 +4,12 @@
 <head>
 	<?php include 'includes/header.php'; ?>
 	<script type="text/javascript" src="js/registration.js"></script>
-	<title>Home</title>
+	<title>Register</title>
 </head>
 
 <body>
+	<?php include 'includes/topmenu.php'; ?>
 	<div class="container-fluid">
-		
-		<?php include 'includes/topmenu.php'; ?>
 		
 		<div class="row" id="content">
 			<div class="col-sm-2" id="leftPanel">
@@ -19,7 +18,6 @@
 			
 			<style>
 				.register-form form.custom-form{
-				padding:55px;
 				box-sizing:border-box;
 				background-color:#ffffff;
 				box-shadow:0 1px 3px 0 rgba(0, 0, 0, 0.1);
@@ -112,7 +110,7 @@
 			
 			<div class="row register-form">
 				<div class="col-md-8 col-md-offset-2">
-					<form name="registrationForm" class="form-horizontal custom-form" action="registerAction.php" method="post" onSubmit="return formValidation()">
+					<form name="registrationForm" class="form-horizontal custom-form" action="auth/registerAction.php" method="post" onSubmit="return formValidation()">
 						<h1>Register Form</h1>
 						<div class="form-group">
 							<div class="col-sm-4 label-column">
@@ -148,7 +146,7 @@
 						</div>
 						<div class="checkbox">
 							<label>
-								<input type="checkbox">I've read and accept the terms and conditions</label>
+								<input type="checkbox">I've read and accept the <a href="terms.php">terms and conditions</a></label>
 						</div>
 						<button class="btn btn-default submit-button" type="submit" onClick="return formValidation()">Submit Form</button>
 					</form>

@@ -7,9 +7,8 @@
 </head>
 
 <body>
+<?php include 'includes/topmenu.php'; ?>
 	<div class="container-fluid">
-		
-		<?php include 'includes/topmenu.php'; ?>
 		
 		<div class="row" id="content">
 			<div class="col-sm-2" id="leftPanel">
@@ -105,7 +104,7 @@
 			</style>
 			<div class="login-card"><img src="img/avatar_2x.png" class="profile-img-card">
 				<p class="profile-name-card"> </p>
-				<form class="form-signin" action="loginAction.php" method="post"><span class="reauth-email"> </span>
+				<form class="form-signin" action="/tgnet/auth/loginAction.php" method="post"><span class="reauth-email"> </span>
 					<input class="form-control" type="email" name="email" required="" placeholder="Email address" autofocus="" id="inputEmail">
 					<input class="form-control" type="password" name="password" required="" placeholder="Password" id="inputPassword">
 					<div class="checkbox">

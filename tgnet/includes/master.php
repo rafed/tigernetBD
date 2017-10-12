@@ -1,27 +1,24 @@
-<?php
-	session_start();
-
-	if(empty($_SESSION['email'])){
-		header('Location: index.php?err=2');
-	}
-?>
-
 <!DOCTYPE html>
 <html>
 
 <head>
 	<?php 
-		include 'includes/header.php'; 
-		echo "<title>$title</title>";
+		session_start();
+
+		include 'includes/header.php';
+
+		if(isset($_SESSION['role'])){
+			echo "<title>" . $_SESSION['role'] . "</title>";
+		}
+		else {
+			echo "<title>TigernetBD</title>";
+		}
 	?>
-	<link rel="stylesheet" href="includes/style.css">
 </head>
 
 <body>
-	
-	<div class="container-fluid">
-		<?php include 'includes/topmenu.php'; ?>
-		
+	<?php include 'includes/topmenu.php'; ?>
+	<div id="main" class="container-fluid">
 		<div class="row" id="content">
 			<div class="col-md-2" id="leftPanel">
 				<?php include 'includes/sideBar.php'; /********** leftbar goes here *********/  ?>     

@@ -1,12 +1,12 @@
 <?php
-// database related variables
+	// database related variables
 	$database = 'tigernetbd';
 	$host = 'localhost';
 	$user = 'root';
-	$pass = '';
+	$pass = 'rafed';
 
 	// conncet to database
-	$sqlConnect=mysqli_connect('localhost','root','rafed','tigernetbd');
+	$sqlConnect=mysqli_connect($host, $user, $pass, $database);
 
 	if(!$sqlConnect){
 		echo "Error coneccting DB";

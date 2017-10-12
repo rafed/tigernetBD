@@ -1,0 +1,43 @@
+body,html {
+  font-family: Lato, sans-serif;
+  height: 100%;
+}
+
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+#leftPanel {
+  padding: 0;
+  min-height: 100%;
+}
+
+#leftPanel ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#leftPanel ul li {
+  font-size: 16px;
+}
+
+#leftPanel ul li a {
+  display: block;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  color: #3B8843;
+}
+
+#leftPanel ul li a:hover {
+  background-color: #4c9453;
+  color: white;
+  text-decoration: none;
+}
+
+#main .container-fluid {
+  padding: 0;
+}
