@@ -20,4 +20,4 @@
             echo '<li><a href="/tgnet/paymentHistory.php">Payment History</a></li>';
         }
     ?>
-<ul>
+</ul>

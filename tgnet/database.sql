@@ -19,10 +19,10 @@ create TABLE users
 INSERT INTO users values('bsse0707@iit.du.ac.bd','Nafis Faisal','nafis','Teacher','active');
 INSERT INTO users values('bsse0709@iit.du.ac.bd','Md. Reshad Mollick','mou','Teacher','active');
 INSERT INTO users values('bsse0727@iit.du.ac.bd','Afrina Sharmin','mahi','Accountant','active');
-INSERT INTO users values('bsse0731@iit.du.ac.bd','Moumita Asad','mou','course Manager','active');
+INSERT INTO users values('bsse0731@iit.du.ac.bd','Moumita Asad','mou','Course Manager','active');
 INSERT INTO users values('bsse0733@iit.du.ac.bd','Rafed Muhammad Yasir','rafed','Teacher','active');
 
-INSERT INTO users values('moumita.asad@yahoo.com','Moumita','mou','student','active');
+INSERT INTO users values('moumita.asad@yahoo.com','Moumita','mou','Student','active');
 
 create TABLE employee
 (
@@ -61,7 +61,6 @@ INSERT INTO course values('Wordpress','2000');
 INSERT INTO course values('Web designing','1000');
 INSERT INTO course values('Server administration','1000');
 
-
 create TABLE batch
 (
 	id bigint not null AUTO_INCREMENT,
@@ -81,31 +80,11 @@ create TABLE courseSchedule
 	courseName varchar(50) not null,
 	day varchar(10) not null,
 	teacherEmail varchar(100) not null,
-	startTime varchar(10) not null,
-	endTime varchar(10) not null,
-	CONSTRAINT courseSchedulePK PRIMARY KEY(courseName,day,teacherEmail),
+	duration varchar(30) not null,
+	CONSTRAINT courseSchedulePK PRIMARY KEY(day,duration),
 	CONSTRAINT courseScheduleFK foreign key(teacherEmail) references users(email),
 	CONSTRAINT courseScheduleFK2 foreign key(courseName) references course(name)
 );
-
-INSERT INTO courseSchedule values('HTML', 'friday', 'bsse0709@iit.du.ac.bd', '09:00:00','11:00:00');
-INSERT INTO courseSchedule values('CSS', 'friday', 'bsse0727@iit.du.ac.bd', '11:00:00','01:00:00');
-
-INSERT INTO courseSchedule values('PHP', 'saturday', 'bsse0731@iit.du.ac.bd', '09:00:00','11:00:00');
-INSERT INTO courseSchedule values('MySQL', 'saturday', 'bsse0707@iit.du.ac.bd', '11:00:00','01:00:00');
-INSERT INTO courseSchedule values('Web designing', 'saturday', 'bsse0733@iit.du.ac.bd', '03:00:00','05:00:00');
-
-INSERT INTO courseSchedule values('HTML', 'sunday', 'bsse0709@iit.du.ac.bd', '03:00:00','05:00:00');
-INSERT INTO courseSchedule values('CSS', 'sunday', 'bsse0727@iit.du.ac.bd', '05:00:00','07:00:00');
-
-INSERT INTO courseSchedule values('Wordpress', 'monday', 'bsse0733@iit.du.ac.bd', '03:00:00','05:00:00');
-INSERT INTO courseSchedule values('PHP', 'monday', 'bsse0731@iit.du.ac.bd', '05:00:00','7:00:00');
-
-INSERT INTO courseSchedule values('MySQL', 'wednesday', 'bsse0707@iit.du.ac.bd', '03:00:00','05:00:00');
-INSERT INTO courseSchedule values('Web designing', 'wednesday', 'bsse0733@iit.du.ac.bd', '05:00:00','07:00:00');
-
-INSERT INTO courseSchedule values('Wordpress', 'thursday', 'bsse0733@iit.du.ac.bd', '03:00:00','05:00:00');
-INSERT INTO courseSchedule values('Web designing', 'thursday', 'bsse0727@iit.du.ac.bd', '05:00:00','07:00:00');
 
 create TABLE revenue
 (

@@ -1,0 +1,18 @@
+INSERT INTO courseSchedule values('HTML', 'friday', 'bsse0709@iit.du.ac.bd', '09:00:00','11:00:00');
+INSERT INTO courseSchedule values('CSS', 'friday', 'bsse0727@iit.du.ac.bd', '11:00:00','01:00:00');
+
+INSERT INTO courseSchedule values('PHP', 'saturday', 'bsse0731@iit.du.ac.bd', '09:00:00','11:00:00');
+INSERT INTO courseSchedule values('MySQL', 'saturday', 'bsse0707@iit.du.ac.bd', '11:00:00','01:00:00');
+INSERT INTO courseSchedule values('Web designing', 'saturday', 'bsse0733@iit.du.ac.bd', '03:00:00','05:00:00');
+
+INSERT INTO courseSchedule values('HTML', 'sunday', 'bsse0709@iit.du.ac.bd', '03:00:00','05:00:00');
+INSERT INTO courseSchedule values('CSS', 'sunday', 'bsse0727@iit.du.ac.bd', '05:00:00','07:00:00');
+
+INSERT INTO courseSchedule values('Wordpress', 'monday', 'bsse0733@iit.du.ac.bd', '03:00:00','05:00:00');
+INSERT INTO courseSchedule values('PHP', 'monday', 'bsse0731@iit.du.ac.bd', '05:00:00','7:00:00');
+
+INSERT INTO courseSchedule values('MySQL', 'wednesday', 'bsse0707@iit.du.ac.bd', '03:00:00','05:00:00');
+INSERT INTO courseSchedule values('Web designing', 'wednesday', 'bsse0733@iit.du.ac.bd', '05:00:00','07:00:00');
+
+INSERT INTO courseSchedule values('Wordpress', 'thursday', 'bsse0733@iit.du.ac.bd', '03:00:00','05:00:00');
+INSERT INTO courseSchedule values('Web designing', 'thursday', 'bsse0727@iit.du.ac.bd', '05:00:00','07:00:00');
