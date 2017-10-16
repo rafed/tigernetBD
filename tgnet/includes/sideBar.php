@@ -13,6 +13,7 @@
         if($role == 'Accountant'){
             echo '<li><a href="/tgnet/paySalary.php">Pay Salary</a></li>';
             echo '<li><a href="/tgnet/allTransactions.php">All transactions</a></li>';
+            echo '<li><a href="/tgnet/addRevenue.php">Add revenue</a></li>';
         }
 
         if($role == 'Student'){

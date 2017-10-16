@@ -3,7 +3,7 @@
 	$database = 'tigernetbd';
 	$host = 'localhost';
 	$user = 'root';
-	$pass = 'rafed';
+	$pass = '';
 
 	// conncet to database
 	$sqlConnect=mysqli_connect($host, $user, $pass, $database);
