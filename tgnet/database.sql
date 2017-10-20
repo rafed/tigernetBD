@@ -95,3 +95,20 @@ create TABLE revenue
 	CONSTRAINT batchPK PRIMARY KEY(id)
 );
 
+INSERT INTO `revenue` (`id`, `category`, `amount`, `dateOfEntry`) VALUES
+(2, 'Domain business', 10000, '2017-10-18 00:00:00'),
+(3, 'Cyber cafe', 1000, '2017-10-18 00:00:00'),
+(4, 'Cyber cafe', 500, '2017-10-19 00:00:00'),
+(5, 'Short course', 200, '2017-10-18 00:00:00'),
+(6, 'Short course', 5000, '2017-10-18 00:00:00'),
+(7, 'Short course', 2000, '2017-10-18 00:00:00'),
+(8, 'Short course', 2000, '2017-10-18 00:00:00'),
+(9, 'Cyber cafe', 20, '2017-10-18 00:00:00'),
+(10, 'Short course', 20, '2017-10-18 00:00:00'),
+(11, 'Cyber cafe', 342, '2017-10-17 00:00:00'),
+(12, 'Short course', 564, '2017-10-18 00:00:00'),
+(13, 'Cyber cafe', 54, '2017-10-18 00:00:00'),
+(14, 'Short course', 64, '2017-10-10 00:00:00'),
+(16, 'Short course', 4560, '2017-01-01 00:00:00'),
+(17, 'Domain business', 10000, '2017-12-31 00:00:00'),
+(18, 'Domain business', 1000, '2017-01-01 00:00:00');
