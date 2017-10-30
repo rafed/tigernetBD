@@ -26,12 +26,14 @@
 				<?php include 'includes/sideBar.php'; /********** leftbar goes here *********/  ?>     
 			</div>
 			
-			<div class="col-md-8" id="writing">
+			<div class="col-md-7" id="writing">
 				<?php include "$page";                /********** content goes here *********/  ?>    
 			</div>
 			
-			<div class="col-md-2" id="rightPanel">
-					
+			<div class="col-md-3" id="rightPanel">
+				<?php if($rightPanel!="")
+					include "$rightPanel"; 
+				?>
 			</div>
 			
 		</div>

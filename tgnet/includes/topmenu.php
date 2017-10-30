@@ -11,7 +11,7 @@
 		
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li><a href="terms.php">Terms & Conditions</a></li>
+				<li><a href="about.php">About us</a></li>
 				<li><a href="contact.php">Contact us</a></li>
 			</ul>
 			

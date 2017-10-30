@@ -14,6 +14,10 @@
                         echo '<li><a href="/tgnet/setRoutine.php">Set Routine <span class="pull-right fa fa-pencil-square-o"></span></a></li>';
                     }
                     
+					if($role == 'Marketing Manager'){
+                        echo '<li><a href="/tgnet/message.php">View Messages <span class="pull-right fa fa fa-commenting-o"></span></a></li>';
+                    }
+					
                     if($role == 'Student'){
                         echo '<li><a href="/tgnet/applyCourse.php">Apply for Course <span class="pull-right fa fa-book"></span></a></li>';
                         echo '<li><a href="/tgnet/paymentHistory.php">Payment History <span class="pull-right fa fa-credit-card-alt"></span></a></li>';

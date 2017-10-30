@@ -9,7 +9,7 @@
 				<option></option>
 				<?php 
 				include 'includes/db-config.php';
-				$query="select * from course";
+				$query="select name from course";
 				$sqlResult=mysqli_query($sqlConnect,$query);
 				while($sqlRow=mysqli_fetch_array($sqlResult,MYSQLI_ASSOC))
 				{
@@ -28,7 +28,7 @@
 				<option></option>
 				<?php 
 				include 'includes/db-config.php';
-				$query="select * from users where role!='student'";
+				$query="select email,name from users where role!='student'";
 				$sqlResult=mysqli_query($sqlConnect,$query);
 				while($sqlRow=mysqli_fetch_array($sqlResult,MYSQLI_ASSOC))
 				{

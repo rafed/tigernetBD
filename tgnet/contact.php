@@ -1,0 +1,5 @@
+<?php
+	$rightPanel = "";
+	$page = 'modules/contact.php';
+	include 'includes/master.php';
+?>

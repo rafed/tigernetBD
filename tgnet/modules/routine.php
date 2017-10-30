@@ -1,7 +1,16 @@
-<?php
+<table class='table'>
+	<tr class='active'>
+		<th>Day</th>
+		<th>09.00-11.00</th>
+		<th>11.00-01.00</th>
+		<th>03.00-05.00</th>
+		<th>05.00-07.00</th>
+	</tr>
+	
+	<?php
 	$days = array("Sunday", "Monday", "Tuesday","Wednesday", "Thursday", "Friday","Saturday");
 	$time = array("09:00:00 - 11:00:00 am", "11:00:00 - 01:00:00 pm", "03:00:00 - 05:00:00 pm","05:00:00 - 07:00:00 pm");
-	$class= array("success", "danger", "info","warning", "active");
+	$class= array("success", "danger", "warning","info", "active");
 	$email=$_SESSION['email'];
 	
 	include 'includes/db-config.php';
@@ -10,15 +19,6 @@
 		$query="select * from courseSchedule where teacherEmail='$email'";
 		$sqlResult=mysqli_query($sqlConnect,$query);
 		
-		echo "<table class='table'>";
-		echo "<tr class='active'>
-				<th>Day</th>
-				<th>09.00-11.00</th>
-				<th>11.00-01.00</th>
-				<th>03.00-05.00</th>
-				<th>05.00-07.00</th>
-			</tr>";
-		
 		for($i=0;$i<count($days);$i++){
 			$index=$i%5;
 			$row="<tr class=".$class[$index]."><td><b>".$days[$i]."</b>";
@@ -38,21 +38,20 @@
 			$row=$row."</tr>";
 			echo $row;
 		} 
-		echo "</table>";
 		mysqli_close($sqlConnect); 	
 	}
 	else{
-		$query="select * from courseSchedule where courseSchedule.courseName in (select courseName from batch where studentEmail='$email')";
+		$query="select * from courseSchedule where courseSchedule.courseName in (select courseName from student where email='$email' and currentStatus='active')";
 		$sqlResult=mysqli_query($sqlConnect,$query);
 		
-		echo "<table class='table'>";
+		/*echo "<table class='table'>";
 		echo "<tr class='active'>
 				<th>Day</th>
 				<th>09.00-11.00</th>
 				<th>11.00-01.00</th>
 				<th>03.00-05.00</th>
 				<th>05.00-07.00</th>
-			</tr>";
+			</tr>";*/
 		
 		for($i=0;$i<count($days);$i++){
 			$index=$i%5;
@@ -76,5 +75,6 @@
 		echo "</table>";
 		mysqli_close($sqlConnect); 	
 	}
-?>
+	?>
+</table>
 
