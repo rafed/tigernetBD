@@ -31,11 +31,12 @@
 			</div>
 			
 			<div class="col-md-3" id="rightPanel">
-				<?php if($rightPanel!="")
-					include "$rightPanel"; 
+				<?php 
+					if(isset($rightPanel)){
+						include "$rightPanel";
+					}
 				?>
 			</div>
-			
 		</div>
 	</div>
 </body>

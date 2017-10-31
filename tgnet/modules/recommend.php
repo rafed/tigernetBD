@@ -1,4 +1,4 @@
-<h2>Recommendation</h2>
+<h3 style="text-align:center">Recommended courses</h3>
 <?php
 	function getSquareRoot($array,$avg){
 		$total=0;
@@ -114,6 +114,4 @@
 	}
 	
 	mysqli_close($sqlConnect); 	
-	
 ?>
-

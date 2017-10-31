@@ -86,7 +86,7 @@
 		$sqlResult=mysqli_query($sqlConnect,$query);
 		
 		if(mysqli_affected_rows($sqlConnect)>0){
-			echo "Done";
+			echo "<script defer> alert('Successfully added!') </script>";
 		}
 		else{
 			echo '<script language="javascript">';
@@ -97,3 +97,68 @@
 		mysqli_close($sqlConnect); 
 	}
 ?>
+
+<!-- ------------------------------------------------ -->
+<?php
+	include 'includes/db-config.php';
+	$query="SELECT * FROM courseSchedule ORDER BY day, duration";
+	$sqlResult=mysqli_query($sqlConnect,$query);
+
+	echo '<table class="table table-striped table-hover">';
+	echo '<thead>';
+	echo '<tr>';
+		echo '<th>Day</th>';
+		echo '<th>Duration</th>';
+		echo '<th>Course Name</th>';
+		echo '<th>Email</th>';
+		echo '<th>Edit</th>';
+		echo '<th>Delete</th>';
+	echo '</tr>';
+	echo '</thead>';
+	
+	echo '<tbody>';
+	while ($row = mysqli_fetch_array($sqlResult)) {
+		echo '<tr>';
+			echo '<td class="day">'.$row['day'].'</td>';
+			echo '<td class="duration">'.$row['duration'].'</td>';
+			echo '<td class="course">'.$row['courseName'].'</td>';
+			echo '<td class="email">'.$row['teacherEmail'].'</td>';
+			echo '<td> <button type="button" class="btn btn-warning" onClick="editRoutine()" data-toggle="modal" data-target="#editRoutine">Edit</button> </td>';
+			echo '<td> <button type="button" class="btn btn-danger" onClick="confirmDelete()">Delete</button> </td>';
+		echo '</tr>';
+	}
+	echo '</tbody>';
+	echo '</table>';
+?>
+
+<script>
+	function confirmDelete(){
+		confirm("Are you sure you want to delete this entry?");
+	}
+
+	function editRoutine(){
+		var row = $(this).closest("tr");
+		var day = row.find("td.day").val();
+		alert(day);
+	}
+</script>
+
+<div id="editRoutine" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update routine</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Update</button>
+      </div>
+    </div>
+
+  </div>
+</div>
