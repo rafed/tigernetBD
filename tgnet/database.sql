@@ -1,12 +1,13 @@
+drop table feedback;
+drop table expense;
 drop table revenue;
-drop table courseSchedule;
 drop table courseRating;
-drop table batch;
+drop table courseSchedule;
+drop table coursePayment;
 drop table student;
 drop table course;
 drop table employee;
 drop table users;
-drop table feedback;
 
 create TABLE users
 (
@@ -72,23 +73,23 @@ INSERT INTO student values('5','sumaiya.asad@yahoo.com','PHP','active');
 INSERT INTO student values('6','suzona.asad@yahoo.com','Wordpress','active');
 INSERT INTO student values('7','suzona.asad@yahoo.com','PHP','active');
 
-create TABLE batch
+create TABLE coursePayment
 (
 	id bigint not null AUTO_INCREMENT,
 	roll varchar(50) not null,
 	paymentAmount FLOAT not null,
 	paymentDate DATETIME not null,
-	CONSTRAINT batchPK PRIMARY KEY(id),
-	CONSTRAINT batchFK foreign key(roll) references student(roll)
+	CONSTRAINT coursePaymentPK PRIMARY KEY(id),
+	CONSTRAINT coursePaymentFK foreign key(roll) references student(roll)
 );
 
-INSERT INTO batch(roll,paymentAmount,paymentDate) values('1','500','2017-10-02');
-INSERT INTO batch(roll,paymentAmount,paymentDate) values('2','700','2017-10-03');
-INSERT INTO batch(roll,paymentAmount,paymentDate) values('3','700','2017-09-18');
-INSERT INTO batch(roll,paymentAmount,paymentDate) values('4','300','2017-09-08');
-INSERT INTO batch(roll,paymentAmount,paymentDate) values('5','500','2017-09-18');
-INSERT INTO batch(roll,paymentAmount,paymentDate) values('6','1000','2017-10-13');
-INSERT INTO batch(roll,paymentAmount,paymentDate) values('7','500','2017-10-13');
+INSERT INTO coursePayment(roll,paymentAmount,paymentDate) values('1','500','2017-10-02');
+INSERT INTO coursePayment(roll,paymentAmount,paymentDate) values('2','700','2017-10-03');
+INSERT INTO coursePayment(roll,paymentAmount,paymentDate) values('3','700','2017-09-18');
+INSERT INTO coursePayment(roll,paymentAmount,paymentDate) values('4','300','2017-09-08');
+INSERT INTO coursePayment(roll,paymentAmount,paymentDate) values('5','500','2017-09-18');
+INSERT INTO coursePayment(roll,paymentAmount,paymentDate) values('6','1000','2017-10-13');
+INSERT INTO coursePayment(roll,paymentAmount,paymentDate) values('7','500','2017-10-13');
 
 
 create TABLE courseSchedule
@@ -102,6 +103,11 @@ create TABLE courseSchedule
 	CONSTRAINT courseScheduleFK2 foreign key(courseName) references course(name)
 );
 
+INSERT INTO courseSchedule values('HTML & CSS','Monday','bsse0731@iit.du.ac.bd', '05:00:00 - 07:00:00 pm');
+INSERT INTO courseSchedule values('Server administration','Monday','bsse0733@iit.du.ac.bd', '09:00:00 - 11:00:00 am');
+INSERT INTO courseSchedule values('Javascript','Wednesday','bsse0727@iit.du.ac.bd', '03:00:00 - 05:00:00 pm');
+INSERT INTO courseSchedule values('HTML & CSS','Wenesday','bsse0731@iit.du.ac.bd', '05:00:00 - 07:00:00 pm');
+
 create TABLE courseRating
 (
 	roll varchar(50) not null,
@@ -113,7 +119,7 @@ create TABLE courseRating
 INSERT INTO courseRating values('1',3);
 INSERT INTO courseRating values('2',4);
 INSERT INTO courseRating values('3',5);
-INSERT INTO courseRating values('4',4);
+--INSERT INTO courseRating values('4',4);
 INSERT INTO courseRating values('6',5);
 INSERT INTO courseRating values('7',4);
 
@@ -123,7 +129,18 @@ create TABLE revenue
 	category varchar(30) not null,
 	amount double not null,
 	dateOfEntry DATETIME not null,
-	CONSTRAINT batchPK PRIMARY KEY(id)
+	CONSTRAINT revenuePK PRIMARY KEY(id)
+);
+
+create TABLE expense
+(
+	id bigint not null AUTO_INCREMENT,
+	category varchar(30) not null,
+	paidTo varchar(100),
+	amount double not null,
+	dateOfEntry DATETIME not null,
+	CONSTRAINT expensePK PRIMARY KEY(id),
+	CONSTRAINT expenseFK foreign key(paidTo) references employee(email)
 );
 
 create TABLE feedback

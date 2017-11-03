@@ -1,11 +1,13 @@
-<table class='table'>
-	<tr class='active'>
+<h2>My routine</h2>
+
+<table class='table table-striped table-hover table-bordered'>
+	<thead class>
 		<th>Day</th>
 		<th>09.00-11.00</th>
 		<th>11.00-01.00</th>
 		<th>03.00-05.00</th>
 		<th>05.00-07.00</th>
-	</tr>
+	</thead>
 	
 	<?php
 	$days = array("Sunday", "Monday", "Tuesday","Wednesday", "Thursday", "Friday","Saturday");
@@ -41,17 +43,9 @@
 		mysqli_close($sqlConnect); 	
 	}
 	else{
+		$rightPanel = "modules/rate.php";
 		$query="select * from courseSchedule where courseSchedule.courseName in (select courseName from student where email='$email' and currentStatus='active')";
 		$sqlResult=mysqli_query($sqlConnect,$query);
-		
-		/*echo "<table class='table'>";
-		echo "<tr class='active'>
-				<th>Day</th>
-				<th>09.00-11.00</th>
-				<th>11.00-01.00</th>
-				<th>03.00-05.00</th>
-				<th>05.00-07.00</th>
-			</tr>";*/
 		
 		for($i=0;$i<count($days);$i++){
 			$index=$i%5;

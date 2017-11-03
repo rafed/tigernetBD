@@ -57,8 +57,9 @@
 <script>
     document.getElementById("writing").classList.remove('col-md-7');
     document.getElementById("writing").classList.add('col-md-10');
-    
-    // document.getElementById("rightPanel").classList.remove('col-md-3');
+
+    document.getElementById("leftPanel").classList.remove('col-md-2');
+    document.getElementById("leftPanel").classList.add('col-md-1');
 </script>
 
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyA_pk7NcbfvI-MZ6Gujn-7x8zqeGwYAaNQ"></script>

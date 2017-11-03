@@ -9,14 +9,14 @@
 
 <body>
 	<?php include 'includes/topmenu.php'; ?>
-	<div class="container-fluid">
+	<div class="container-fluid" id="main">
 		
 		<div class="row" id="content">
 			<div class="col-md-2" id="leftPanel">
-				
+				<p style="color:white">a</p>
 			</div>
 			
-			<div class="col-md-8">
+			<div class="col-md-8" id="writing">
 				<style>
 					.register-form form.custom-form{
 						box-sizing:border-box;

@@ -8,7 +8,7 @@
 
 <body>
 <?php include 'includes/topmenu.php'; ?>
-	<div class="container-fluid">
+	<div class="container-fluid" id="main">
 		
 		<div class="row" id="content">
 			<div class="col-sm-2" id="leftPanel">
