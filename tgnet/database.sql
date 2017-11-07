@@ -106,7 +106,7 @@ create TABLE courseSchedule
 INSERT INTO courseSchedule values('HTML & CSS','Monday','bsse0731@iit.du.ac.bd', '05:00:00 - 07:00:00 pm');
 INSERT INTO courseSchedule values('Server administration','Monday','bsse0733@iit.du.ac.bd', '09:00:00 - 11:00:00 am');
 INSERT INTO courseSchedule values('Javascript','Wednesday','bsse0727@iit.du.ac.bd', '03:00:00 - 05:00:00 pm');
-INSERT INTO courseSchedule values('HTML & CSS','Wenesday','bsse0731@iit.du.ac.bd', '05:00:00 - 07:00:00 pm');
+INSERT INTO courseSchedule values('HTML & CSS','Wednesday','bsse0731@iit.du.ac.bd', '05:00:00 - 07:00:00 pm');
 
 create TABLE courseRating
 (
