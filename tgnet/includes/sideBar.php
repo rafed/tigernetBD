@@ -36,7 +36,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Expense <span class="caret"></span><span class="pull-right fa fa-money"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
-                                    <li><a href="addExpense.php">Add revenue</a></li>
+                                    <li><a href="addExpense.php">Add expense</a></li>
                                     <li><a href="#">Reports</a></li>
                                 </ul>
                             </li>';
