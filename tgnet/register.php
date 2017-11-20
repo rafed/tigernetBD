@@ -1,3 +1,27 @@
+<?php 
+
+	$success = "nothing";
+
+	if(isset($_POST['submit'])){
+		include 'includes/db-config.php';
+
+		$query = "INSERT INTO users values ('" . $_POST['email'] . "', '" .
+												 $_POST['name'] . "', '" .
+												 $_POST['password'] . "', 'Student', 'inactive')";
+		// echo $query;
+		
+		$sqlResult = mysqli_query($sqlConnect,$query);
+		
+		if($sqlResult){
+			$success = "true";
+		}
+		else {
+			$success = "false";
+		}
+	}
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -107,15 +131,28 @@
 						outline:none;
 					}
 				</style>
+
 				<div class="register-form">
-					<form name="registrationForm" class="form-horizontal custom-form" action="auth/registerAction.php" method="post" onSubmit="return formValidation()">
+					<form name="registrationForm" class="form-horizontal custom-form" action="register.php" method="post" onSubmit="return formValidation()">
 						<h1>Registration Form</h1>
+
+						<?php
+							if($success == "false"){ ?>
+								<div class="alert alert-danger">
+								<strong>Error!</strong> That email already exists. Please sign in or register with another email.
+								</div>
+							<?php } else if ($success == "true"){ ?>
+								<div class="alert alert-success">
+								<strong>Success!</strong> <span style="font-weight:normal">Registration successful. <a href="login.php">Login</a>. </span>
+								</div>
+						<?php } ?>
+
 						<div class="form-group">
 							<div class="col-sm-4 label-column">
 								<label class="control-label" for="name-input-field">Name </label>
 							</div>
 							<div class="col-sm-6 input-column">
-								<input class="form-control" type="text" required>
+								<input class="form-control" name="name" type="text" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -123,7 +160,7 @@
 								<label class="control-label" for="email-input-field">Email </label>
 							</div>
 							<div class="col-sm-6 input-column">
-								<input class="form-control" type="email" required>
+								<input class="form-control" name="email" type="email" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -144,16 +181,17 @@
 						</div>
 						<div class="checkbox">
 							<label>
-								<input type="checkbox">I've read and accept the <a href="terms.php">terms and conditions</a></label>
+								<input type="checkbox" required>I've read and accept the <a href="terms.php">terms and conditions</a>
+							</label>
 						</div>
-						<button class="btn btn-default submit-button" type="submit" onClick="return formValidation()">Submit Form</button>
+						<button class="btn btn-default submit-button" name="submit" type="submit" onClick="return formValidation()">Submit Form</button>
 					</form>
 					</div>
 				</div>
 			</div>
 			
 			<div class="col-md-2" id="rightPanel">
-				
+				<p style="color:white">a</p>
 			</div>
     	</div>
 	</div>
