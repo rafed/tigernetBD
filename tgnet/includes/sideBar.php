@@ -11,7 +11,8 @@
                         }
                         
                         if($role == 'Course Manager'){
-                            echo '<li><a href="/tgnet/setRoutine.php">Set Routine <span class="pull-right fa fa-pencil-square-o"></span></a></li>';
+                            echo '<li><a href="/tgnet/setRoutine.php">Set routine <span class="pull-right fa fa-pencil-square-o"></span></a></li>';
+                            echo '<li><a href="/tgnet/studentStatus.php">Change student status <span class="pull-right glyphicon glyphicon-user"></span></a></li>';
                         }
                         
                         if($role == 'Marketing Manager'){
@@ -19,8 +20,8 @@
                         }
                         
                         if($role == 'Student'){
-                            echo '<li><a href="/tgnet/applyCourse.php">Apply for Course <span class="pull-right fa fa-book"></span></a></li>';
-                            echo '<li><a href="/tgnet/paymentHistory.php">Payment History <span class="pull-right fa fa-credit-card-alt"></span></a></li>';
+                            echo '<li><a href="/tgnet/applyCourse.php">Apply for course <span class="pull-right fa fa-book"></span></a></li>';
+                            echo '<li><a href="/tgnet/paymentHistory.php">Payment history <span class="pull-right fa fa-credit-card-alt"></span></a></li>';
                         }
 
                         if($role == 'Accountant'){
@@ -40,8 +41,8 @@
                                     <li><a href="#">Reports</a></li>
                                 </ul>
                             </li>';
-                            echo '<li><a href="#">Pay Salary <span class="pull-right fa fa-book"></span></a></li>';
-                            echo '<li><a href="courseFee.php">Course Fee <span class="pull-right fa fa fa-money"></span></a></li>';
+                            echo '<li><a href="#">Pay salary <span class="pull-right fa fa-book"></span></a></li>';
+                            echo '<li><a href="courseFee.php">Course fee <span class="pull-right fa fa fa-money"></span></a></li>';
                         }
                         
                         echo '<style> #leftPanel {background-color: #e7e7e7;} </style>';
