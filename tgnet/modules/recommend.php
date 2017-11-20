@@ -93,6 +93,7 @@
 		arsort($ranking);
 		
 		$count=0;
+		$previous="";
 		foreach($ranking as $x => $x_value){
 			$query="(select courseName from student,courseRating where student.roll=courseRating.roll and rating>2 and email='$x' and courseName in (select courseName from student where email='$x' and courseName not in (select courseName from student where email='$email')))";
 			
@@ -101,9 +102,11 @@
 			while($sqlRow=mysqli_fetch_array($sqlResult,MYSQLI_ASSOC))
 			{
 				if($count<2){
-					echo "<img class='img-responsive img-rounded' src=/tgnet/img/".$sqlRow['courseName'].".png alt=".$sqlRow['courseName'].">";
-					//echo $sqlRow['courseName']."<br>";
-					$count++;
+					if($previous!=$sqlRow['courseName']){
+						echo "<img class='img-responsive img-rounded' src=/tgnet/img/".$sqlRow['courseName'].".png alt=".$sqlRow['courseName'].">";
+						//echo $sqlRow['courseName']."<br>";
+						$count++;
+					}
 				}
 				else{
 					break;

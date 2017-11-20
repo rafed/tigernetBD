@@ -41,7 +41,7 @@
                                 </ul>
                             </li>';
                             echo '<li><a href="#">Pay Salary <span class="pull-right fa fa-book"></span></a></li>';
-                            echo '<li><a href="#">All transactions <span class="pull-right fa fa-bar-chart"></span></a></li>';
+                            echo '<li><a href="courseFee.php">Course Fee <span class="pull-right fa fa fa-money"></span></a></li>';
                         }
                         
                         echo '<style> #leftPanel {background-color: #e7e7e7;} </style>';

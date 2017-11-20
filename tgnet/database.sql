@@ -119,7 +119,6 @@ create TABLE courseRating
 INSERT INTO courseRating values('1',3);
 INSERT INTO courseRating values('2',4);
 INSERT INTO courseRating values('3',5);
---INSERT INTO courseRating values('4',4);
 INSERT INTO courseRating values('6',5);
 INSERT INTO courseRating values('7',4);
 
@@ -136,11 +135,9 @@ create TABLE expense
 (
 	id bigint not null AUTO_INCREMENT,
 	category varchar(30) not null,
-	paidTo varchar(100),
 	amount double not null,
 	dateOfEntry DATETIME not null,
 	CONSTRAINT expensePK PRIMARY KEY(id),
-	CONSTRAINT expenseFK foreign key(paidTo) references employee(email)
 );
 
 create TABLE feedback
