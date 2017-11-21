@@ -12,7 +12,7 @@
 	<?php
 	$days = array("Sunday", "Monday", "Tuesday","Wednesday", "Thursday", "Friday","Saturday");
 	$time = array("09:00:00 - 11:00:00 am", "11:00:00 - 01:00:00 pm", "03:00:00 - 05:00:00 pm","05:00:00 - 07:00:00 pm");
-	$class= array("success", "danger", "warning","info", "active");
+	$class= array("success", "danger", "warning","info");
 	$email=$_SESSION['email'];
 	
 	include 'includes/db-config.php';
@@ -22,7 +22,7 @@
 		$sqlResult=mysqli_query($sqlConnect,$query);
 		
 		for($i=0;$i<count($days);$i++){
-			$index=$i%5;
+			$index=$i%4;
 			$row="<tr class=".$class[$index]."><td><b>".$days[$i]."</b>";
 			for($j=0;$j<count($time);$j++){
 				$course=" ";
@@ -48,7 +48,7 @@
 		$sqlResult=mysqli_query($sqlConnect,$query);
 		
 		for($i=0;$i<count($days);$i++){
-			$index=$i%5;
+			$index=$i%4;
 			$row="<tr class=".$class[$index]."><td><b>".$days[$i]."</b>";
 			for($j=0;$j<count($time);$j++){
 				$course=" ";
