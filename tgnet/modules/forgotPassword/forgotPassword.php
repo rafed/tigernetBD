@@ -2,12 +2,44 @@
 <html>
 
 <head>
-	<?php include 'includes/header.php'; ?>
+	<?php include '../../includes/header.php'; ?>
 	<title>Home</title>
 </head>
 
 <body>
-<?php include 'includes/topmenu.php'; ?>
+<?php include '../../includes/topmenu.php'; ?>
+
+<?php
+
+	if(isset($_POST['sendMail']))
+	{
+		include '../../includes/db-config.php';
+		
+		$email=$_POST['email'];
+		
+		$sql ="select * from users where email='$email'";
+            $result = $conn->query($sql);
+            if ($result == true) {
+                if ($result->num_rows > 0) {
+					session_start();
+					$_SESSION['email'] = $email;
+					header('Location: sendMail.php');
+                }
+				else{
+					$message = "Invalid Email";
+					echo "<script>alert('$message')</script>";
+                    echo "
+					<script type='text/javascript'>
+						window.location='../../index.php';            
+					</script>";
+				}
+			}
+			else {
+                echo $conn->error;
+			}
+
+	}
+?>
 	<div class="container-fluid" id="main">
 		
 		<div class="row" id="content">
@@ -102,29 +134,12 @@
 			}
 
 			</style>
-			<?php
-				if($_GET['err'] == 1){ ?>
-					<div class="alert alert-danger">
-					<strong>Error!</strong> That email already exists. Please sign in or register with another email.
-					</div>
-			<?php } ?>
-			<div class="login-card"><img src="img/avatar_2x.png" class="profile-img-card">
+			<div class="login-card"><img src="../../img/avatar_2x.png" class="profile-img-card">
 				<p class="profile-name-card"> </p>
-				<form class="form-signin" action="/tgnet/auth/loginAction.php" method="post"><span class="reauth-email"> </span>
+				<form class="form-signin" action="forgotPassword.php" method="post"><span class="reauth-email"> </span>
 					<input class="form-control" type="email" name="email" required="" placeholder="Email address" autofocus="" id="inputEmail">
-					<input class="form-control" type="password" name="password" required="" placeholder="Password" id="inputPassword">
-					<div class="checkbox">
-						<div class="checkbox">
-							<label>
-								<input type="checkbox">Remember me
-							</label>
-						</div>
-					</div>
-					<button class="btn btn-primary btn-block btn-lg btn-signin" type="submit" name="login" value="login">Sign in</button>
-				</form><a href="forgotPassword.php" class="forgot-password">Forgot your password?</a></div>
-			
+					<button class="btn btn-primary btn-block btn-lg btn-signin" type="submit" name="sendMail" value="login">Send Mail</button>
 			<div class="col-sm-2" id="rightPanel">
-			
 			</div>
 		</div>
 	</div>

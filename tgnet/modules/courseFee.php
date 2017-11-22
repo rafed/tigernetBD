@@ -28,7 +28,7 @@
 				<option></option>
 				<?php 
 				include 'includes/db-config.php';
-				$query="select distinct student.email,name from users,student where student.email=users.email and role='student' and currentStatus='active'";
+				$query="select distinct student.email,name from users,student where student.email=users.email and role='student'";
 				$sqlResult=mysqli_query($sqlConnect,$query);
 				while($sqlRow=mysqli_fetch_array($sqlResult,MYSQLI_ASSOC))
 				{

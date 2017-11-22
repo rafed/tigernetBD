@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
     }
 
     if($_POST['submit'] == 'pay'){
-        $query="INSERT INTO expense (category, amount, paidTo, dateOfEntry) values('short course', '$_POST[amount]', '$_POST[email]', now())";
+        $query="INSERT INTO expense (category, amount, paidTo, dateOfEntry) values('salary', '$_POST[amount]', '$_POST[email]', now())";
         $sqlResult=mysqli_query($sqlConnect,$query);
     }
 
@@ -111,8 +111,10 @@ function editSalary(button){
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-3">Amount:</label>	
-            <div class='col-sm-9'>
+        	<div class='col-sm-3'>
+            	<label class="control-label col-sm-3">Amount:</label>	
+            </div>
+            <div class='col-sm-3'>
                 <input id='salary' type="text" name="salary" value="">
             </div>
         </div>

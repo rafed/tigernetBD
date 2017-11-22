@@ -7,7 +7,8 @@
                         $role = $_SESSION['role'];
             
                         if($role != null){
-                            echo '<li><a href="/tgnet/routine.php">My routine <span class="pull-right glyphicon glyphicon-th-list"></span> </a></li>';
+                            echo '<li><a href="/tgnet/routine.php">My routine <span class="pull-right glyphicon glyphicon-th-list"></span></a></li>';
+                            echo '<li style="width:100%"></li>';
                         }
                         
                         if($role == 'Course Manager'){

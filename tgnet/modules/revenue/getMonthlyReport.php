@@ -20,7 +20,7 @@
 				
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-						echo $row;
+						#echo $row['amount']." ";
 						$row1[$i] = $row;
 						$totalBill+=$row['amount'];
 						$i++;
@@ -35,8 +35,12 @@
             if ($result == true) {
 				
                 if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-						echo $row;
+                	$row=null;
+                	$row['category']='short course';
+                	
+                    while ($row2 = $result->fetch_assoc()) {
+                    	
+						$row=$row+$row2;
 						$row1[$i] = $row;
 						$totalBill+=$row['paymentAmount'];
 						$i++;
@@ -52,6 +56,6 @@
 		$month=date("F",$d1);
 		$timePeriod=$month.', '.$year;
 		$header = array("Category", "Amount", "Date");
-		#include "pdf/monthlyReportpdf.php";
+		include "pdf/monthlyReportpdf.php";
 	}
 ?>

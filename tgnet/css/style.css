@@ -30,6 +30,11 @@ body,html {
   color: #161616;
 }
 
+.modal-content {
+	background-color: #e7e7e7;
+}
+
+
 /* ***************************** */
 
 nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
