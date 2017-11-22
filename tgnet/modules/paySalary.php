@@ -66,10 +66,10 @@ while ($row = mysqli_fetch_array($sqlResult)) {
         echo '<td class="name">'.$row['name'].'</td>';
 
         echo '<td class="email">'.$row['email'].'</td>';
-        echo '<input type="hidden" name="email" value="' . $row[email] . '">';
+        echo '<input type="hidden" name="email" value="' . $row['email'] . '">';
 
         echo '<td class="salary">'.$row['salary'].'</td>';
-        echo '<input type="hidden" name="amount" value="' . $row[salary] . '">';
+        echo '<input type="hidden" name="amount" value="' . $row['salary'] . '">';
         
         echo '<td> <button type="button" class="btn btn-warning" onClick="editSalary(this);" data-toggle="modal" data-target="#editRoutine">Edit</button> </td>';
         echo '<td> <button type="submit" class="btn btn-primary" name="submit" value="pay">Pay salary</button> </td>';
@@ -111,11 +111,9 @@ function editSalary(button){
         </div>
 
         <div class="form-group">
-        	<div class='col-sm-3'>
-            	<label class="control-label col-sm-3">Amount:</label>	
-            </div>
-            <div class='col-sm-3'>
-                <input id='salary' type="text" name="salary" value="">
+            <label class="control-label col-sm-3">Amount:</label>	
+            <div class='col-sm-9'>
+                <input id='salary' type="number" name="salary" value="">
             </div>
         </div>
 
