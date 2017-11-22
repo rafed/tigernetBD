@@ -102,6 +102,12 @@
 			}
 
 			</style>
+			<?php
+				if($_GET['err'] == 1){ ?>
+					<div class="alert alert-danger">
+					<strong>Error!</strong> That email already exists. Please sign in or register with another email.
+					</div>
+			<?php } ?>
 			<div class="login-card"><img src="img/avatar_2x.png" class="profile-img-card">
 				<p class="profile-name-card"> </p>
 				<form class="form-signin" action="/tgnet/auth/loginAction.php" method="post"><span class="reauth-email"> </span>
@@ -116,7 +122,9 @@
 					</div>
 					<button class="btn btn-primary btn-block btn-lg btn-signin" type="submit" name="login" value="login">Sign in</button>
 				</form><a href="#" class="forgot-password">Forgot your password?</a></div>
+			
 			<div class="col-sm-2" id="rightPanel">
+			
 			</div>
 		</div>
 	</div>

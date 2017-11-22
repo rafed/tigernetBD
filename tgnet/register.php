@@ -5,10 +5,10 @@
 	if(isset($_POST['submit'])){
 		include 'includes/db-config.php';
 		
-		$psswd = PASSWORD_HASH($_POST["password"], PASSWORD_DEFAULT);
+		$psswd = md5($_POST["password"]);
 		$query = "INSERT INTO users values ('" . $_POST['email'] . "', '" .
 												 $_POST['name'] . "', '" .
-												 $psswd . "', 'Student', 'inactive')";
+												 $psswd . "', 'Student')";
 		// echo $query;
 		
 		$sqlResult = mysqli_query($sqlConnect,$query);
@@ -18,6 +18,7 @@
 		}
 		else {
 			$success = "false";
+			echo $psswd;
 		}
 	}
 ?>

@@ -4,6 +4,6 @@
 	}
 	
 	if(empty($_SESSION['email'])){
-		header('Location: index.php?err=2');
+		header('Location: login.php?err=2');
 	}
 ?>
