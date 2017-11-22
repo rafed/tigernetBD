@@ -5,7 +5,10 @@
 	{
 		include '../includes/db-config.php';
 		
-		$sqlQuery = "select * from users where email='" . $_POST['email'] . "' and password='" . $_POST['password'] . "'";
+		$psswd = PASSWORD_HASH($_POST['password'], PASSWORD_DEFAULT);
+		
+		echo $psswd;
+		$sqlQuery = "select * from users where email='" . $_POST['email'] . "' and password='" . $psswd  . "'";
 		$sqlResult = mysqli_query($sqlConnect,$sqlQuery);
 		mysqli_close($sqlConnect);
 				
@@ -19,6 +22,6 @@
 		$_SESSION['email'] = $_POST['email'];
 		$_SESSION['role'] = $sqlRow['role'];
 
-		header('Location: /tgnet/routine.php');
+		//header('Location: /tgnet/routine.php');
 	}
 ?>

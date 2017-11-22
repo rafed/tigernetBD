@@ -1,6 +1,6 @@
 <h2 >Monthly report</h2>
 </br>
-<form class="form-horizontal well" action="getMonthlyReport.php"  method="post" target="_blank">	
+<form class="form-horizontal well" action="/tgnet/modules/expense/getMonthlyReport.php"  method="post" target="_blank">	
 	<div class="form-group">
 		<label class="control-label col-sm-3">Month</label>	
 		<div class='col-sm-8'>

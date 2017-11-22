@@ -4,10 +4,11 @@
 
 	if(isset($_POST['submit'])){
 		include 'includes/db-config.php';
-
+		
+		$psswd = PASSWORD_HASH($_POST["password"], PASSWORD_DEFAULT);
 		$query = "INSERT INTO users values ('" . $_POST['email'] . "', '" .
 												 $_POST['name'] . "', '" .
-												 $_POST['password'] . "', 'Student', 'inactive')";
+												 $psswd . "', 'Student', 'inactive')";
 		// echo $query;
 		
 		$sqlResult = mysqli_query($sqlConnect,$query);

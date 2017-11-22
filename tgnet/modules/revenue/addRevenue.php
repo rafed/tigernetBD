@@ -1,8 +1,8 @@
 <h2 >Add Revenue</h2>
 </br>
-<form class="form-horizontal well" name ="revenueForm" action="setRevenue.php"  method="post">
+<form class="form-horizontal well" name ="revenueForm" action="/tgnet/modules/revenue/setRevenue.php"  method="post">
 	<div class="form-group">
-		<label class="control-label col-sm-3">Revenue Category</label>	
+		<label class="control-label col-sm-3">Revenue Category</label>
 		<div class='col-sm-8'>
 			<select class='form-control' name="option" required>
 				<option></option>

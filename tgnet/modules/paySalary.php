@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
     }
 
     if($_POST['submit'] == 'pay'){
-        $query="INSERT INTO expense (category, amount, dateOfEntry) values('short course', '$_POST[amount]', now())";
+        $query="INSERT INTO expense (category, amount, paidTo, dateOfEntry) values('short course', '$_POST[amount]', '$_POST[email]', now())";
         $sqlResult=mysqli_query($sqlConnect,$query);
     }
 

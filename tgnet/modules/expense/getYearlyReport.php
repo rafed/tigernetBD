@@ -4,7 +4,7 @@
 	{
 		include '../../includes/db-config.php';
 		
-		$year=$_POST['year'];
+		$year=$_POST['option'];
 
 		$d1 = strtotime( $year."0101");
         $d2 = strtotime($year."1231");

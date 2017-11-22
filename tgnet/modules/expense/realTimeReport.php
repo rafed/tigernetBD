@@ -1,6 +1,6 @@
 <h2 >Real time report</h2>
 </br>
-<form class="form-horizontal well" action="getRealTimeReport.php"  method="post" target="_blank">	
+<form class="form-horizontal well" action="/tgnet/modules/expense/getRealTimeReport.php"  method="post" target="_blank">	
 	<div class="form-group">
 		<label class="control-label col-sm-3">Starting Date</label>	
 		<div class='col-sm-8'>

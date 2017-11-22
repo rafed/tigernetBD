@@ -15,19 +15,18 @@ create TABLE users
 	name varchar(100) not null,
 	password varchar(50) not null,
 	role varchar(20) not null,
-	accountStatus varchar(10) not null default 'inactive',
 	CONSTRAINT userPK PRIMARY KEY(email)
 );
 
-INSERT INTO users values('bsse0707@iit.du.ac.bd','Nafis Faisal','nafis','Teacher','active');
-INSERT INTO users values('bsse0709@iit.du.ac.bd','Md. Reshad Mollick','mou','Marketing Manager','active');
-INSERT INTO users values('bsse0727@iit.du.ac.bd','Afrina Sharmin','mahi','Accountant','active');
-INSERT INTO users values('bsse0731@iit.du.ac.bd','Moumita Asad','mou','Course Manager','active');
-INSERT INTO users values('bsse0733@iit.du.ac.bd','Rafed Muhammad Yasir','rafed','Teacher','active');
+INSERT INTO users values('bsse0707@iit.du.ac.bd','Nafis Faisal','f31f33f8620a0581766cea54f89c98d9','Teacher');
+INSERT INTO users values('bsse0709@iit.du.ac.bd','Md. Reshad Mollick','361228d0a65bd2355b029b2fe0aad7c6','Marketing Manager');
+INSERT INTO users values('bsse0727@iit.du.ac.bd','Afrina Sharmin','99941a8015cd830b498cd9f0ddf4a500','Accountant');
+INSERT INTO users values('bsse0731@iit.du.ac.bd','Moumita Asad','361228d0a65bd2355b029b2fe0aad7c6','Course Manager');
+INSERT INTO users values('bsse0733@iit.du.ac.bd','Rafed Muhammad Yasir','d98776477ebff87bbad3a0d9254d7bc8','Teacher');
 
-INSERT INTO users values('moumita.asad@yahoo.com','Moumita','mou','Student','active');
-INSERT INTO users values('suzona.asad@yahoo.com','Suzona','suzi','Student','active');
-INSERT INTO users values('sumaiya.asad@yahoo.com','Sumaiya','sumu','Student','active');
+INSERT INTO users values('moumita.asad@yahoo.com','Moumita','361228d0a65bd2355b029b2fe0aad7c6','Student');
+INSERT INTO users values('suzona.asad@yahoo.com','Suzona','9947181da16bb3a83ae151221ac480c7','Student');
+INSERT INTO users values('sumaiya.asad@yahoo.com','Sumaiya','a223f3fec3c0d51f40869e68af87c6df','Student');
 
 
 create TABLE employee
@@ -136,8 +135,10 @@ create TABLE expense
 	id bigint not null AUTO_INCREMENT,
 	category varchar(30) not null,
 	amount double not null,
+	paidTo varchar(100) not null,
 	dateOfEntry DATETIME not null,
 	CONSTRAINT expensePK PRIMARY KEY(id)
+	-- CONSTRAINT expenseFK foreign key(paidTo) references employee(email)
 );
 
 create TABLE feedback
