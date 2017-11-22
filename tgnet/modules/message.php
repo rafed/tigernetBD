@@ -10,8 +10,10 @@
 			<h4><?php echo $sqlRow['name']; ?></h4>
 			<p>
 			<?php echo $sqlRow['phone'];
-				if(!empty($sqlRow['email']))
-					echo ", ".$sqlRow['email'];
+				if(!empty($sqlRow['phone']) && !empty($sqlRow['email'])){
+					echo ", ";
+				}
+				echo $sqlRow['email'];
 			?>
 			</p>
 			</br>

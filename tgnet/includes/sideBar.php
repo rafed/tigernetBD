@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default sidebar" role="navigation">
     <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1" >
             <ul class="nav navbar-nav">
                 <?php
                     if(isset($_SESSION['role'])){
@@ -8,7 +8,7 @@
             
                         if($role != null){
                             echo '<li><a href="/tgnet/routine.php">My routine <span class="pull-right glyphicon glyphicon-th-list"></span></a></li>';
-                            echo '<li style="width:100%"></li>';
+                       
                         }
                         
                         if($role == 'Course Manager'){

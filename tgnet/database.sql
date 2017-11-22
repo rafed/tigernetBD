@@ -64,14 +64,6 @@ create TABLE student
 	CONSTRAINT studentFK2 foreign key(courseName) references course(name)
 );
 
-INSERT INTO student	values('1','moumita.asad@yahoo.com','Wordpress','active');
-INSERT INTO student values('2','moumita.asad@yahoo.com','HTML & CSS','inactive');
-INSERT INTO student values('3','sumaiya.asad@yahoo.com','HTML & CSS','active');
-INSERT INTO student values('4','sumaiya.asad@yahoo.com','MySQL','active');
-INSERT INTO student values('5','sumaiya.asad@yahoo.com','PHP','active');
-INSERT INTO student values('6','suzona.asad@yahoo.com','Wordpress','active');
-INSERT INTO student values('7','suzona.asad@yahoo.com','PHP','active');
-
 create TABLE coursePayment
 (
 	id bigint not null AUTO_INCREMENT,
@@ -81,14 +73,6 @@ create TABLE coursePayment
 	CONSTRAINT coursePaymentPK PRIMARY KEY(id),
 	CONSTRAINT coursePaymentFK foreign key(roll) references student(roll)
 );
-
-INSERT INTO coursePayment(roll,paymentAmount,paymentDate) values('1','500','2017-10-02');
-INSERT INTO coursePayment(roll,paymentAmount,paymentDate) values('2','700','2017-10-03');
-INSERT INTO coursePayment(roll,paymentAmount,paymentDate) values('3','700','2017-09-18');
-INSERT INTO coursePayment(roll,paymentAmount,paymentDate) values('4','300','2017-09-08');
-INSERT INTO coursePayment(roll,paymentAmount,paymentDate) values('5','500','2017-09-18');
-INSERT INTO coursePayment(roll,paymentAmount,paymentDate) values('6','1000','2017-10-13');
-INSERT INTO coursePayment(roll,paymentAmount,paymentDate) values('7','500','2017-10-13');
 
 
 create TABLE courseSchedule
@@ -102,10 +86,6 @@ create TABLE courseSchedule
 	CONSTRAINT courseScheduleFK2 foreign key(courseName) references course(name)
 );
 
-INSERT INTO courseSchedule values('HTML & CSS','Monday','bsse0731@iit.du.ac.bd', '05:00:00 - 07:00:00 pm');
-INSERT INTO courseSchedule values('Server administration','Monday','bsse0733@iit.du.ac.bd', '09:00:00 - 11:00:00 am');
-INSERT INTO courseSchedule values('Javascript','Wednesday','bsse0727@iit.du.ac.bd', '03:00:00 - 05:00:00 pm');
-INSERT INTO courseSchedule values('HTML & CSS','Wednesday','bsse0731@iit.du.ac.bd', '05:00:00 - 07:00:00 pm');
 
 create TABLE courseRating
 (
@@ -114,12 +94,6 @@ create TABLE courseRating
 	CONSTRAINT courseRatingPK PRIMARY KEY(roll),
 	CONSTRAINT courseRatingFK foreign key(roll) references student(roll)
 );
-
-INSERT INTO courseRating values('1',3);
-INSERT INTO courseRating values('2',4);
-INSERT INTO courseRating values('3',5);
-INSERT INTO courseRating values('6',5);
-INSERT INTO courseRating values('7',4);
 
 create TABLE revenue
 (
@@ -138,7 +112,6 @@ create TABLE expense
 	paidTo varchar(100) not null,
 	dateOfEntry DATETIME not null,
 	CONSTRAINT expensePK PRIMARY KEY(id)
-	-- CONSTRAINT expenseFK foreign key(paidTo) references employee(email)
 );
 
 create TABLE feedback
@@ -152,20 +125,3 @@ create TABLE feedback
 );
 
 
-INSERT INTO `revenue` (`id`, `category`, `amount`, `dateOfEntry`) VALUES
-(2, 'Domain business', 10000, '2017-10-18 00:00:00'),
-(3, 'Cyber cafe', 1000, '2017-10-18 00:00:00'),
-(4, 'Cyber cafe', 500, '2017-10-19 00:00:00'),
-(5, 'Short course', 200, '2017-10-18 00:00:00'),
-(6, 'Short course', 5000, '2017-10-18 00:00:00'),
-(7, 'Short course', 2000, '2017-10-18 00:00:00'),
-(8, 'Short course', 2000, '2017-10-18 00:00:00'),
-(9, 'Cyber cafe', 20, '2017-10-18 00:00:00'),
-(10, 'Short course', 20, '2017-10-18 00:00:00'),
-(11, 'Cyber cafe', 342, '2017-10-17 00:00:00'),
-(12, 'Short course', 564, '2017-10-18 00:00:00'),
-(13, 'Cyber cafe', 54, '2017-10-18 00:00:00'),
-(14, 'Short course', 64, '2017-10-10 00:00:00'),
-(16, 'Short course', 4560, '2017-01-01 00:00:00'),
-(17, 'Domain business', 10000, '2017-12-31 00:00:00'),
-(18, 'Domain business', 1000, '2017-01-01 00:00:00');

@@ -1,6 +1,6 @@
 <div class="col-md-6">
     <div class="well well-sm">
-        <form class="form-horizontal" method="post">
+        <form class="form-horizontal" action="contact.php" method="post">
             <fieldset>
                 <div class="text-center header">Contact us</div>
                 <div class="form-group">
@@ -23,7 +23,7 @@
 
                 <div class="form-group">
                     <div class="col-md-10 col-md-offset-1">
-                        <textarea class="form-control" id="message" name="message" placeholder="Enter your massage for us here." rows="10" required></textarea>
+                        <textarea class="form-control" id="message" name="message" placeholder="Enter your message for us here." rows="10" required></textarea>
                     </div>
                 </div>
 

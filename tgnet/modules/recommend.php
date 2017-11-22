@@ -1,4 +1,3 @@
-<h3 style="text-align:center; color:black">Recommended courses</h3>
 <?php
 	function getSquareRoot($array,$avg){
 		$total=0;
@@ -20,102 +19,107 @@
 	$total=0;
 	$rating1 = array(); 
 	
-	while($sqlRow=mysqli_fetch_array($sqlResult,MYSQLI_ASSOC))
-	{
-		$total=$total+$sqlRow['rating'];
-		$rating1[$sqlRow['courseName']]=$sqlRow['rating'];
-	}
-	$avg1=$total/mysqli_affected_rows($sqlConnect);
-	
-	/*foreach($rating1 as $x => $x_value) {
-		$x_value=$x_value-$avg;
-		$rating1[$x]=$x_value;
-		//echo $x." ".$x_value."<br>";
-	}*/
-	
-	$sqrt1=getSquareRoot($rating1,$avg1);
-	/*foreach($rating1 as $x => $x_value) {
-		echo $x." ".$x_value."<br>";
-	}*/
-
-	if($sqrt1!=0){
-		$query="select DISTINCT(email) from student where email!='$email'";
-		$sqlResult=mysqli_query($sqlConnect,$query);
-		$studentList = [];
-		
+	if(mysqli_affected_rows($sqlConnect)>0){
 		while($sqlRow=mysqli_fetch_array($sqlResult,MYSQLI_ASSOC))
 		{
-			$studentList[] = $sqlRow['email'];
+			$total=$total+$sqlRow['rating'];
+			$rating1[$sqlRow['courseName']]=$sqlRow['rating'];
 		}
+		$avg1=$total/mysqli_affected_rows($sqlConnect);
 		
-		$ranking = array();
-		for($i=0;$i<count($studentList);$i++){
-			//echo $studentList[$i]."<br>";
-			$query="select courseName,rating from student,courseRating where student.roll=courseRating.roll and email='$studentList[$i]'";
+		/*foreach($rating1 as $x => $x_value) {
+			$x_value=$x_value-$avg;
+			$rating1[$x]=$x_value;
+			//echo $x." ".$x_value."<br>";
+		}*/
+		
+		$sqrt1=getSquareRoot($rating1,$avg1);
+		/*foreach($rating1 as $x => $x_value) {
+			echo $x." ".$x_value."<br>";
+		}*/
+		
+		if($sqrt1!=0){
+			$query="select DISTINCT(email) from student where email!='$email'";
 			$sqlResult=mysqli_query($sqlConnect,$query);
-			
-			$total=0;
-			$rating2 = array(); 
+			$studentList = [];
 			
 			while($sqlRow=mysqli_fetch_array($sqlResult,MYSQLI_ASSOC))
 			{
-				$total=$total+$sqlRow['rating'];
-				$rating2[$sqlRow['courseName']]=$sqlRow['rating'];
+				$studentList[] = $sqlRow['email'];
 			}
-			$avg2=$total/mysqli_affected_rows($sqlConnect);
 			
-			/*foreach($rating2 as $x => $x_value) {
-				$x_value=$x_value-$avg;
-				$rating2[$x]=$x_value;
-				//echo $x." ".$x_value."<br>";
-			}*/
-			$sqrt2=getSquareRoot($rating2,$avg2);
-			
-			if($sqrt2!=0){
-				$query="(select courseName from student where email='$studentList[$i]' and courseName in (select courseName from student where email='$email'))";
+			$ranking = array();
+			for($i=0;$i<count($studentList);$i++){
+				//echo $studentList[$i]."<br>";
+				$query="select courseName,rating from student,courseRating where student.roll=courseRating.roll and email='$studentList[$i]'";
 				$sqlResult=mysqli_query($sqlConnect,$query);
 				
 				$total=0;
+				$rating2 = array(); 
 				
 				while($sqlRow=mysqli_fetch_array($sqlResult,MYSQLI_ASSOC))
 				{
+					$total=$total+$sqlRow['rating'];
+					$rating2[$sqlRow['courseName']]=$sqlRow['rating'];
+				}
+				$avg2=$total/mysqli_affected_rows($sqlConnect);
+				
+				/*foreach($rating2 as $x => $x_value) {
+					$x_value=$x_value-$avg;
+					$rating2[$x]=$x_value;
+					echo $x." ".$x_value."<br>";
+				}*/
+				$sqrt2=getSquareRoot($rating2,$avg2);
+				
+				if($sqrt2!=0){
+					$query="(select courseName from student where email='$studentList[$i]' and courseName in (select courseName from student where email='$email'))";
+					$sqlResult=mysqli_query($sqlConnect,$query);
 					
-					if(isset($rating1[$sqlRow['courseName']]) && isset($rating2[$sqlRow['courseName']])){
-						$total=$total+(($rating1[$sqlRow['courseName']]-$avg1)*($rating2[$sqlRow['courseName']]-$avg2));
+					$total=0;
+					
+					while($sqlRow=mysqli_fetch_array($sqlResult,MYSQLI_ASSOC))
+					{
+						
+						if(isset($rating1[$sqlRow['courseName']]) && isset($rating2[$sqlRow['courseName']])){
+							$total=$total+(($rating1[$sqlRow['courseName']]-$avg1)*($rating2[$sqlRow['courseName']]-$avg2));
+						}
 					}
+					//echo "<br>";
+					$ranking[$studentList[$i]]=($total/($sqrt1*$sqrt2));
+					//echo "VALUE for ".$studentList[$i]." ".($total/($sqrt1*$sqrt2))."<br>";
 				}
-				//echo "<br>";
-				$ranking[$studentList[$i]]=($total/($sqrt1*$sqrt2));
-				//echo "VALUE for ".$studentList[$i]." ".($total/($sqrt1*$sqrt2))."<br>";
 			}
-		}
-		
-		arsort($ranking);
-		
-		$count=0;
-		$previous="";
-		foreach($ranking as $x => $x_value){
-			$query="(select courseName from student,courseRating where student.roll=courseRating.roll and rating>2 and email='$x' and courseName in (select courseName from student where email='$x' and courseName not in (select courseName from student where email='$email')))";
 			
-			$sqlResult=mysqli_query($sqlConnect,$query);
+			arsort($ranking);
 			
-			while($sqlRow=mysqli_fetch_array($sqlResult,MYSQLI_ASSOC))
-			{
-				if($count<2){
-					if($previous!=$sqlRow['courseName']){
-						echo "<img class='img-responsive img-rounded' src=/tgnet/img/".$sqlRow['courseName'].".png alt=".$sqlRow['courseName'].">";
-						//echo $sqlRow['courseName']."<br>";
-						$count++;
+			$count=0;
+			$previous="";
+			foreach($ranking as $x => $x_value){
+				$query="(select courseName from student,courseRating where student.roll=courseRating.roll and rating>2 and email='$x' and courseName in (select courseName from student where email='$x' and courseName not in (select courseName from student where email='$email')))";
+				
+				$sqlResult=mysqli_query($sqlConnect,$query);
+				
+				while($sqlRow=mysqli_fetch_array($sqlResult,MYSQLI_ASSOC))
+				{
+					if($count==0)?>
+						<h3 style="text-align:center; color:black">Recommended courses</h3>
+					<?php
+					if($count<2){
+						if($previous!=$sqlRow['courseName']){
+							echo "<img class='img-responsive img-rounded' src=/tgnet/img/".$sqlRow['courseName'].".png alt=".$sqlRow['courseName'].">";
+							//echo $sqlRow['courseName']."<br>";
+							$count++;
+						}
+					}
+					else{
+						break;
 					}
 				}
-				else{
+				if($count==2){
 					break;
 				}
 			}
-			if($count==2){
-				break;
-			}
-		}
-	}	
-	mysqli_close($sqlConnect); 	
+		}	
+		mysqli_close($sqlConnect); 	
+	}
 ?>

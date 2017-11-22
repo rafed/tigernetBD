@@ -7,12 +7,12 @@
 	$email=$_SESSION['email'];
 	
 	include 'includes/db-config.php';
-	$query="select courseName,roll from student where email='$email' and roll not in (select roll from courseRating)";
+	$query="select courseName,roll from student where email='$email' and currentStatus!='inactive' and roll not in (select roll from courseRating)";
 	$sqlResult=mysqli_query($sqlConnect,$query);
 	$count=0;
 	while($sqlRow=mysqli_fetch_array($sqlResult,MYSQLI_ASSOC))
 	{
-		if($count==0){
+		if($count==0 && mysqli_affected_rows($sqlConnect)>0){
 			?>
 			<script>document.getElementById("rate").classList.add('well');</script>
 			<h2>Rate Course</h2>
