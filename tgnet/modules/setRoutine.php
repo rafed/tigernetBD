@@ -50,7 +50,7 @@
 			ORDER BY FIELD(day, 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')";
 	$sqlResult=mysqli_query($sqlConnect,$query);
 
-	echo '<table class="table table-striped table-hover">';
+	echo '<table class="table well">';
 	echo '<thead>';
 	echo '<tr>';
 		echo '<th>Day</th>';
@@ -216,7 +216,7 @@
 <h2>Add new routine</h2>
 
 <br>
-<form class="form-horizontal" action="setRoutine.php" method="post">
+<form class="form-horizontal well" action="setRoutine.php" method="post">
 	<div class="form-group">
 		<label class="control-label col-sm-2">Course Name:</label>	
 		<div class='col-sm-8'>
@@ -289,7 +289,7 @@
 	
 	<div class="form-group"> 
 		<div class="col-sm-offset-5 col-sm-6">
-			<button type="submit" class="btn btn-success" name="submit" value="add">Submit</button>
+			<button type="submit" class="btn btn-primary" name="submit" value="add">Submit</button>
 		</div>
 	</div>
 </form>

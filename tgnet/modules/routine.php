@@ -12,7 +12,7 @@
 	<?php
 	$days = array("Sunday", "Monday", "Tuesday","Wednesday", "Thursday", "Friday","Saturday");
 	$time = array("09:00:00 - 11:00:00 am", "11:00:00 - 01:00:00 pm", "03:00:00 - 05:00:00 pm","05:00:00 - 07:00:00 pm");
-	$class= array("success", "danger", "warning","info");
+	$class= array( "danger","success", "warning","info");
 	$email=$_SESSION['email'];
 	
 	include 'includes/db-config.php';

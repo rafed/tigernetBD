@@ -25,7 +25,7 @@
 			<input type="hidden" name="rating"/>
 			</br>
 			</br>
-			<button class="btn btn-info" type="button">Submit</button>
+			<button class="btn btn-primary" type="button">Submit</button>
 		</form>
 	<?php
 	$count++;

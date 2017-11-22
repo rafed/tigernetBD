@@ -35,7 +35,8 @@
 			}
 			
 		$year=date("Y",$d1);
-		
+		$timePeriod=$year;
+
 		$header = array("Category", "Amount", "Date");
 		include "pdf/yearlyReportpdf.php";
 	}

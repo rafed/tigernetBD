@@ -49,7 +49,7 @@
 	
 	<div class="form-group"> 
 		<div class="col-sm-offset-5 col-sm-6">
-			<button type="submit" class="btn btn-success" name="submit" value="add">Submit</button>
+			<button type="submit" class="btn btn-primary" name="submit" value="add">Submit</button>
 		</div>
 	</div>
 </form>
@@ -72,16 +72,16 @@
 </br>
 <h2>Recent Payment History</h2>
 </br>
-<input type="text" id="studentName" onkeyup="searchStudent()" placeholder="Search Student" title="Search" style="width:100%">
+<input type="text" id="studentName" onkeyup="searchStudent()" placeholder="Search Student" title="Search">
 </br>
 </br>
 
-<table id= 'paymentHistoryTable' class='table table-hover table-bordered text-center'>
+<table id= 'paymentHistoryTable' class='table table-bordered text-center'>
 	<thead>
-		<th class="text-center">Student Name</th>
-		<th class="text-center">Course Name</th>
-		<th class="text-center">Amount</th>
-		<th class="text-center">Date</th>
+		<th class="text-center success">Student Name</th>
+		<th class="text-center success">Course Name</th>
+		<th class="text-center success">Amount</th>
+		<th class="text-center success">Date</th>
 	</thead>
 	
 	<?php
@@ -94,7 +94,7 @@
 	
 	while($sqlRow=mysqli_fetch_array($sqlResult,MYSQLI_ASSOC))
 	{
-		echo "<tr class=active><td>".$sqlRow['name']." (".$sqlRow['email'].")</td>";
+		echo "<tr><td>".$sqlRow['name']." (".$sqlRow['email'].")</td>";
 		echo "<td>".$sqlRow['courseName']."</td>";
 		echo "<td>".$sqlRow['paymentAmount']."</td>";
 		echo "<td>".$sqlRow['paymentDate']."</td></tr>";

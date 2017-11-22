@@ -11,8 +11,6 @@
 		$date1 = date('Y-m-d',$d1);
 		$date2=date('Y-m-d',$d2);
 
-		
-		
 		$sql ="select category,amount,DATE(dateOfEntry) from revenue where DATE(dateOfEntry) between '$date1' and '$date2' order by DATE(dateOfEntry)";
             $result = $conn->query($sql);
             if ($result == true) {
@@ -26,7 +24,6 @@
 						$totalBill+=$row['amount'];
 						$i++;
 					}
-                    
                 }
 			}
 			else {
@@ -35,12 +32,8 @@
 			
 		$year=date("Y",$d1);
 		$month=date("F",$d1);
-		
+		$timePeriod=$month.', '.$year;
 		$header = array("Category", "Amount", "Date");
 		include "pdf/monthlyReportpdf.php";
-
-		
-
-		
 	}
 ?>

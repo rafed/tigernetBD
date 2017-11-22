@@ -137,7 +137,7 @@ create TABLE expense
 	category varchar(30) not null,
 	amount double not null,
 	dateOfEntry DATETIME not null,
-	CONSTRAINT expensePK PRIMARY KEY(id),
+	CONSTRAINT expensePK PRIMARY KEY(id)
 );
 
 create TABLE feedback

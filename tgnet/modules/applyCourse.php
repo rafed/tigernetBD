@@ -3,8 +3,8 @@
 <br>
 <form class="form-horizontal" action="applyCourse.php" method="post">
 	<div class="form-group">
-		<label class="control-label col-sm-2">Select Course:</label>	
-		<div class='col-sm-4'>
+		<label class="control-label col-sm-3">Select Course:</label>	
+		<div class='col-sm-8'>
 			<select class='form-control' name="courseName" required>
 				<option></option>
 				<?php 
@@ -22,8 +22,8 @@
 	</div>
 
 	<div class="form-group"> 
-		<div class="col-sm-offset-2 col-sm-6">
-			<button type="submit" class="btn btn-success" name="apply" value="apply">Apply</button>
+		<div class="col-sm-offset-5 col-sm-6">
+			<button type="submit" class="btn btn-primary" name="apply" value="apply">Apply</button>
 		</div>
 	</div>
 </form>
@@ -38,12 +38,6 @@
 		$query="INSERT INTO student values('$roll','$_SESSION[email]','$_POST[courseName]','inactive')";
 		$sqlResult=mysqli_query($sqlConnect,$query);
 		
-		if(mysqli_affected_rows($sqlConnect)>0){
-			echo "Applied Successfully";
-		}
-		else{
-			echo "Try again";
-		}
 		mysqli_close($sqlConnect); 
 	}
 ?>

@@ -1,14 +1,14 @@
 <h2>My Payment History</h2>
 </br>
-<input type="text" id="courseName" onkeyup="searchCourse()" placeholder="Search Course" title="Search" style="width:100%">
+<input type="text" id="courseName" onkeyup="searchCourse()" placeholder="Search Course" title="Search">
 </br>
 </br>
 
-<table id= 'paymentTable' class='table table-hover table-bordered text-center'>
+<table id= 'paymentTable' class='table table-bordered text-center'>
 	<thead>
-		<th class="text-center">Course Name</th>
-		<th class="text-center">Amount</th>
-		<th class="text-center">Date</th>
+		<th class="text-center success">Course Name</th>
+		<th class="text-center success">Amount</th>
+		<th class="text-center success">Date</th>
 	</thead>
 	
 	<?php
@@ -23,7 +23,7 @@
 	
 	while($sqlRow=mysqli_fetch_array($sqlResult,MYSQLI_ASSOC))
 	{
-		echo "<tr class=active><td>".$sqlRow['courseName']."</td>";
+		echo "<tr><td>".$sqlRow['courseName']."</td>";
 		echo "<td>".$sqlRow['paymentAmount']."</td>";
 		echo "<td>".$sqlRow['paymentDate']."</td></tr>";
 	} 

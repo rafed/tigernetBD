@@ -1,4 +1,4 @@
-<h3 style="text-align:center">Recommended courses</h3>
+<h3 style="text-align:center; color:black">Recommended courses</h3>
 <?php
 	function getSquareRoot($array,$avg){
 		$total=0;

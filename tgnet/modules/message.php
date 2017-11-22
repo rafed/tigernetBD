@@ -15,10 +15,10 @@
 			?>
 			</p>
 			</br>
-			<p><?php echo $sqlRow['message'];?></p>
+			<h3><?php echo $sqlRow['message'];?></h3>
 			<input type="hidden" name="messageId" value="<?php echo $sqlRow['id'];?>"/>
 			</br>
-			<button class="btn btn-info" type="submit" name="okay" value="okay">Okay</button>
+			<button class="btn btn-primary" type="submit" name="okay" value="okay">Okay</button>
 		</form>
 	</div>
 	<?php

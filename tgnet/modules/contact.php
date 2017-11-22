@@ -29,7 +29,7 @@
 
                 <div class="form-group">
                     <div class="col-md-12 text-center">
-                        <button type="submit" name="submit" class="btn btn-success btn-lg">Submit</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </fieldset>
@@ -58,8 +58,7 @@
     document.getElementById("writing").classList.remove('col-md-7');
     document.getElementById("writing").classList.add('col-md-10');
 
-    document.getElementById("leftPanel").classList.remove('col-md-2');
-    document.getElementById("leftPanel").classList.add('col-md-1');
+    document.getElementById("rightPanel").classList.remove('col-md-2');
 </script>
 
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyA_pk7NcbfvI-MZ6Gujn-7x8zqeGwYAaNQ"></script>
