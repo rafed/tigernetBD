@@ -34,6 +34,28 @@
                 echo $conn->error;
 			}
 			
+			$sql ="select paymentAmount,DATE(paymentDate) from coursePayment where DATE(paymentDate) between '$date1' and '$date2' order by DATE(paymentDate)";
+			$result = $conn->query($sql);
+            if ($result == true) {
+				
+                if ($result->num_rows > 0) {
+                	$row=null;
+                	$row['category']='short course';
+                	
+                    while ($row2 = $result->fetch_assoc()) {
+                    	
+						$row['paymentAmount']=$row2['paymentAmount'];
+						$row['paymentDate']=$row2['DATE(paymentDate)'];
+						$row1[$i] = $row;
+						$totalBill+=$row['paymentAmount'];
+						$i++;
+					}
+                }
+			}
+			else {
+                echo $conn->error;
+			}
+			
 		$year=date("Y",$d1);
 		$timePeriod=$year;
 

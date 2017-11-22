@@ -40,7 +40,8 @@
                 	
                     while ($row2 = $result->fetch_assoc()) {
                     	
-						$row=$row+$row2;
+						$row['paymentAmount']=$row2['paymentAmount'];
+						$row['paymentDate']=$row2['DATE(paymentDate)'];
 						$row1[$i] = $row;
 						$totalBill+=$row['paymentAmount'];
 						$i++;
