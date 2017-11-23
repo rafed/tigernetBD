@@ -1,7 +1,6 @@
 <div class="col-md-6">
     <div class="well well-sm">
         <form class="form-horizontal" action="contact.php" method="post">
-            <fieldset>
                 <div class="text-center header">Contact us</div>
                 <div class="form-group">
                     <div class="col-md-10 col-md-offset-1">
@@ -32,7 +31,6 @@
                         <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
-            </fieldset>
         </form>
     </div>
 </div>

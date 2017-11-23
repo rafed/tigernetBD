@@ -104,7 +104,7 @@
 
 			<div class="col-md-6" id="writing">
 			<?php
-				if($_GET['err'] == 1){ ?>
+				if(isset($_GET['err']) && $_GET['err'] == 1){ ?>
 					<div class="alert alert-danger">
 					<strong>Error!</strong> Username or password mismatch. Try again.
 					</div>

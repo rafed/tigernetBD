@@ -1,7 +1,3 @@
-<style TYPE="text/css">
-	@import url(modules/star/dist/starrr.css);
-</style>
-
 <div id="rate">
 	<?php 
 	$email=$_SESSION['email'];
