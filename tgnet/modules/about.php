@@ -11,3 +11,9 @@
 	<li><b>Ethics: </b>In our work environment we try maintain integrity, punctuality and passion for our work.</li>
 	<li><b>Customer satisfaction: </b>Products or services are not delivered until customer satisfaction is achieved.</li>
 </ul>
+
+<style>
+.jumbotron {
+	background: none;
+}
+</style>

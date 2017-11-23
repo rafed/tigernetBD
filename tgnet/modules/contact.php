@@ -47,8 +47,9 @@
                 Sector: 11<br />
                 Uttora, Dhaka<br />
                 </p>
-                <div id="myMap" class="map">
-                </div>
+                <div id="myMap" class="map"></div>
+                <br>
+                <p>Like our <a href="https://www.facebook.com/Tigernet-BD-342718456167946/">facebook page</a> and get the latest updates!</p>
             </div>
         </div>
     </div>

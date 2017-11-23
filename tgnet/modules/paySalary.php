@@ -38,7 +38,7 @@ document.getElementById("writing").classList.remove('col-md-7');
 document.getElementById("writing").classList.add('col-md-8');
 </script>
 
-<h2>Change student status</h2>
+<h2>Pay Salary</h2>
 
 <?php
 include 'includes/db-config.php';
@@ -61,19 +61,20 @@ echo '</thead>';
 
 echo '<tbody>';
 while ($row = mysqli_fetch_array($sqlResult)) {
-    echo '<form action="paySalary.php" method="post">';
-    echo '<tr>';
-        echo '<td class="name">'.$row['name'].'</td>';
+    echo '<form class="form-horizontal well" action="paySalary.php" method="post">';
+    echo '<div class="form-group">';
+        echo '<tr>';
+            echo '<td class="name">'.$row['name'].'</td>';
+            echo '<td class="email">'.$row['email'].'</td>';
+            echo '<input type="hidden" name="email" value="' . $row['email'] . '">';
 
-        echo '<td class="email">'.$row['email'].'</td>';
-        echo '<input type="hidden" name="email" value="' . $row['email'] . '">';
-
-        echo '<td class="salary">'.$row['salary'].'</td>';
-        echo '<input type="hidden" name="amount" value="' . $row['salary'] . '">';
-        
-        echo '<td> <button type="button" class="btn btn-warning" onClick="editSalary(this);" data-toggle="modal" data-target="#editRoutine">Edit</button> </td>';
-        echo '<td> <button type="submit" class="btn btn-primary" name="submit" value="pay">Pay salary</button> </td>';
-    echo '</tr></form>';
+            echo '<td class="salary">'.$row['salary'].'</td>';
+            echo '<input type="hidden" name="amount" value="' . $row['salary'] . '">';
+            
+            echo '<td> <button type="button" class="btn btn-warning" onClick="editSalary(this);" data-toggle="modal" data-target="#editRoutine">Edit</button> </td>';
+            echo '<td> <button type="submit" class="btn btn-primary" name="submit" value="pay">Pay salary</button> </td>';
+        echo '</tr></div></form>';
+    
 }
 echo '</tbody>';
 echo '</table>';
@@ -102,17 +103,16 @@ function editSalary(button){
     </div>
     <div class="modal-body">
     
-    <form class="form-horizontal" action="paySalary.php" method="post">
-        <input id='email' type="hidden" name="email" value="">
-        
+    <form class="form-horizontal well" action="paySalary.php" method="post">
         <div class="form-group">
+            <input id='email' type="hidden" name="email" value="">
             <label class="control-label col-sm-3">Email: </label>
             <label class="control-label col-sm-3" id='email2'></label>
         </div>
 
         <div class="form-group">
             <label class="control-label col-sm-3">Amount:</label>	
-            <div class='col-sm-9'>
+            <div class='col-sm-8'>
                 <input id='salary' type="number" name="salary" value="">
             </div>
         </div>
